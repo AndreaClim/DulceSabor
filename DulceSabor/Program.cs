@@ -3,6 +3,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//CONEXION A LA BASE DE DATOS
+builder.Services.AddDbContext<DsContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("dulceDbConnection")));  
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
