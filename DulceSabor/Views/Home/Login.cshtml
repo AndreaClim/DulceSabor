@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="login-box text-center">
+                <h2>Cajero</h2>
+                <form asp-controller="Home" asp-action="LoginCajero" method="post">
+                    <div class="mb-3 text-start">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control bg-dark text-white" name="nombre" />
+                    </div>
+                    <div class="mb-3 text-start">
+                        <label class="form-label">Apellido</label>
+                        <input type="text" class="form-control bg-dark text-white" name="apellido" />
+                    </div>
+                    <button type="submit" class="btn btn-yellow w-100">Acceder</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center bg-warning rounded">
+            <h3 class="mb-3 text-dark fw-bold">Cocina</h3>
+            <form asp-controller="Home" asp-action="LoginCocina" method="post">
+                <button class="btn fs-1 text-dark">&#8594;</button>
+            </form>
+        </div>
+    </div>
+</div>

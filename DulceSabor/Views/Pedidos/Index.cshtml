@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DulceSabor.Models.pedidos>
+
+@{
+    ViewData["Title"] = "Pedidos";
+}
+
+<div class="container mt-4">
+    <h2>Pedidos Realizados</h2>
+
+    <table class="table table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Mesa</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pedido in Model)
+            {
+                <tr>
+                    <td>@pedido.id_pedido</td>
+                    <td>@pedido.id_cliente</td>
+                    <td>@pedido.id_mesa</td>
+                    <td>@pedido.fecha_pedido.ToString("g")</td>
+                    <td>@pedido.estado</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

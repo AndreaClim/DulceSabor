@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 //CONEXION A LA BASE DE DATOS
 builder.Services.AddDbContext<DsContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("dulceDbConnection")));  
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));  
 
 var app = builder.Build();
 
@@ -29,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Login}/{id?}");
 
 app.Run();

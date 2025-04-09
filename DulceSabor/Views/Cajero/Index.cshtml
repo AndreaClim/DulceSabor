@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DulceSabor.Models.pedidos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-4">
+    <h2>Cuentas abiertas</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID Pedido</th>
+                <th>ID Mesa</th>
+                <th>Estado</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pedido in Model)
+            {
+                <tr>
+                    <td>@pedido.id_pedido</td>
+                    <td>@pedido.id_mesa</td>
+                    <td>@pedido.estado</td>
+                    <td>
+                        <form asp-action="Cobrar" method="post">
+                            <input type="hidden" name="id" value="@pedido.id_pedido" />
+                            <button type="submit" class="btn btn-success">Cobrar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DulceSabor.Models.facturas>
+
+@{
+    ViewData["Title"] = "Facturas";
+}
+
+<div class="container mt-4">
+    <h2>Facturas Emitidas</h2>
+
+    <table class="table table-striped table-hover mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <th>Método de Pago</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var factura in Model)
+            {
+                <tr>
+                    <td>@factura.id_factura</td>
+                    <td>@factura.fecha_factura.ToShortDateString()</td>
+                    <td>@factura.total.ToString("C")</td>
+                    <td>@factura.metodo_pago</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

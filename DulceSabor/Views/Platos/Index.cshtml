@@ -1,0 +1,29 @@
+﻿@model IEnumerable<DulceSabor.Models.platos>
+
+@{
+    ViewData["Title"] = "Platos";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Lista de Platos</h2>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-secondary">
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var plato in Model)
+            {
+                <tr>
+                    <td>@plato.nombre</td>
+                    <td>@plato.descripcion</td>
+                    <td>@plato.precio.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,32 +1,27 @@
-using System.Diagnostics;
-using DulceSabor.Models;
-using Microsoft.AspNetCore.Mvc;
+    using System.Diagnostics;
+    using DulceSabor.Models;
+    using Microsoft.AspNetCore.Mvc;
 
-namespace DulceSabor.Controllers
-{
+    namespace DulceSabor.Controllers
+    {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
+        public IActionResult Login()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult LoginCajero(string nombre, string apellido)
         {
-            return View();
+            // Aquí podrías validar login si quieres
+            return RedirectToAction("Index", "Cajero");
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult LoginCocina()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return RedirectToAction("Index", "Cocina");
         }
     }
 }

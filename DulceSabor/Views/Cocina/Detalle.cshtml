@@ -1,0 +1,21 @@
+﻿@model DulceSabor.Models.pedidos
+
+@{
+    ViewData["Title"] = "Detalle del Pedido";
+}
+
+<div class="container mt-4">
+    <h2>Detalle del Pedido</h2>
+
+    <p><strong>Estado:</strong> @Model.estado</p>
+    <p><strong>Comentario:</strong> Sin sal en la sopa</p>
+
+    <h4>Platos:</h4>
+    <ul>
+        <li>Sopa de pollo</li>
+        <li>Carne asada</li>
+        <li>Jugo de naranja</li>
+    </ul>
+
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>
