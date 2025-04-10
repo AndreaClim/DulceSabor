@@ -19,7 +19,7 @@ namespace DulceSabor.Controllers
                 .ToList();
 
             var pedidosLinea = _context.pedido_linea
-                .Where(pl => pl.estado == "Pendiente")
+                .Where(pl => pl.estado == "Solicitado")
                 .ToList();
 
             // Pasamos ambos conjuntos de datos al ViewBag

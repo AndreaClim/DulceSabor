@@ -8,6 +8,6 @@ namespace DulceSabor.Models
         public int id_pedidoL { get; set; }
         public int id_item { get; set; }
         public decimal precio_unitario { get; set; }    
-        public string tipo { get; set; }
+        public string estado { get; set; }
     }
 }
