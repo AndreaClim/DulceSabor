@@ -13,7 +13,7 @@ namespace DulceSabor.Controllers
             _context = context;
         }
 
-        // Mostrar la vista principal con las tablas de pedidos
+        // Mostrar la vista principal con las tablas de pedidos dfdtgsfgffgd
         public IActionResult Index()
         {
             var cuentasAbiertas = _context.pedidos
