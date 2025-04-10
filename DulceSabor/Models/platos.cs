@@ -8,6 +8,7 @@ namespace DulceSabor.Models
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public decimal precio { get; set; }
-        public int tiempo_estimado { get; set; }
+        public int? tiempo_estimado { get; set; }
+
     }
 }

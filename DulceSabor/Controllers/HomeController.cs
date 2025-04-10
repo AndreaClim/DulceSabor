@@ -23,7 +23,11 @@ namespace DulceSabor.Controllers
         public IActionResult LoginCajero(string nombre, string apellido)
         {
             var empleado = _context.Empleados
-                .FirstOrDefault(e => e.nombre == nombre && e.apellido == apellido && e.rol == "Cajero");
+     .FirstOrDefault(e =>
+         (e.nombre ?? "").Trim().ToLower() == (nombre ?? "").Trim().ToLower() &&
+         (e.apellido ?? "").Trim().ToLower() == (apellido ?? "").Trim().ToLower() &&
+         (e.rol ?? "").Trim().ToLower() == "Cajero");
+
 
             if (empleado != null)
             {
@@ -33,6 +37,7 @@ namespace DulceSabor.Controllers
             ViewBag.Error = "Nombre o apellido incorrecto.";
             return View("Login");
         }
+
 
 
         [HttpPost]
