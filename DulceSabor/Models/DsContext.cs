@@ -18,6 +18,7 @@ namespace DulceSabor.Models
         public DbSet<pedidos> pedidos { get; set; }
         public DbSet<detalle_linea> detalle_linea { get; set; }
         public DbSet<pedido_linea> pedido_linea { get; set; }
+        public DbSet<Empleados> Empleados { get; set; }
 
     }
 }

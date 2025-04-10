@@ -8,6 +8,12 @@
         <div class="col-md-6">
             <div class="login-box text-center">
                 <h2>Cajero</h2>
+
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger">@ViewBag.Error</div>
+                }
+
                 <form asp-controller="Home" asp-action="LoginCajero" method="post">
                     <div class="mb-3 text-start">
                         <label class="form-label">Nombre</label>
