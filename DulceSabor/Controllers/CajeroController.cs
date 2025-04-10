@@ -20,7 +20,9 @@ namespace DulceSabor.Controllers
 
             Console.WriteLine($"Número de pedidos pendientes: {cuentasAbiertas.Count}"); // Para depuración
 
-            var pedidosLinea = _context.pedido_linea.ToList();
+            var pedidosLinea = _context.pedido_linea
+                 .Where(p => p.estado == "Pendiente")
+                .ToList();
 
 
             var viewModel = new PedidosViewModel
