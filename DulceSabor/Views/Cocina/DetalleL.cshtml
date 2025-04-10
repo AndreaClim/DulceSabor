@@ -12,6 +12,7 @@
         <tr>
             <th>Nombre del Plato</th>
             <th>Tiempo Estimado</th>
+            <th>Acción</th>
         </tr>
     </thead>
     <tbody>
@@ -20,9 +21,43 @@
             var item = items.FirstOrDefault(i => i.id_item == detalle.id_item);
             var plato = platos.FirstOrDefault(p => p.id_plato == item?.id_plato);
 
+        
+            if (detalle.id_dpedido == 3 || detalle.id_dpedido == 4)
+            {
+                continue;  
+            }
+
             <tr>
                 <td>@(plato?.nombre)</td>
                 <td>@(plato?.tiempo_estimado)</td>
+                <td>
+                    @if (detalle.estado == "En proceso")
+                    {
+                        <form asp-action="CambiarEstadoDetalleLinea" method="post">
+                            <input type="hidden" name="id" value="@detalle.id_dpedido" />
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                Finalizar
+                            </button>
+                        </form>
+                    }
+                    else if (detalle.estado == "Solicitado")
+                    {
+                        <form asp-action="CambiarEstadoDetalleLinea" method="post">
+                            <input type="hidden" name="id" value="@detalle.id_dpedido" />
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Iniciar
+                            </button>
+                        </form>
+                    }
+                    else if (detalle.estado == "Iniciado")
+                    {
+                        <span>En proceso...</span>
+                    }
+                </td>
+            </tr>
+        }
+
+                </td>
             </tr>
         }
     </tbody>
