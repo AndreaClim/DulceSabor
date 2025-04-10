@@ -20,7 +20,17 @@ namespace DulceSabor.Controllers
 
             Console.WriteLine($"Número de pedidos pendientes: {cuentasAbiertas.Count}"); // Para depuración
 
-            return View(cuentasAbiertas);
+            var pedidosLinea = _context.pedido_linea.ToList();
+
+
+            var viewModel = new PedidosViewModel
+            {
+                pedidos = cuentasAbiertas,
+                pedidos_linea = pedidosLinea
+            };
+
+            return View(viewModel); // ✅ Ahora sí coincide con la vista
+
         }
 
     }

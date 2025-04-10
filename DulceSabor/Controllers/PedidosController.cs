@@ -18,7 +18,8 @@ namespace DulceSabor.Controllers
         public IActionResult Index()
         {
             // Recuperar los pedidos de la base de datos
-            var pedidos = _context.pedidos.ToList(); // Recupera todos los pedidos, incluidos los estados
+            var pedidos = _context.pedidos.ToList(); // Recuperar todos los pedidos
+ 
 
             return View(pedidos); // Pasa los pedidos a la vista
         }
