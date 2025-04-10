@@ -8,7 +8,6 @@ namespace DulceSabor.Models
         public int id_pedido { get; set; }
         public int id_plato { get; set; }
         public string? comentarios { get; set; }
-        public int tiempo_estimado { get; set; }
-        public string tipo { get; set; }
+       
     }
 }
