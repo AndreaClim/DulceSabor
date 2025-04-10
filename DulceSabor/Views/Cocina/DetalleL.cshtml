@@ -1,0 +1,29 @@
+﻿@model IEnumerable<DulceSabor.Models.detalle_linea>
+@{
+    ViewData["Title"] = "Detalle Pedido Línea";
+    var items = ViewBag.Items as List<DulceSabor.Models.item>;
+    var platos = ViewBag.Platos as List<DulceSabor.Models.platos>;
+}
+
+<h2>Detalle del Pedido en Línea #@ViewBag.IdPedidoLinea</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Nombre del Plato</th>
+            <th>Tiempo Estimado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detalle in Model)
+        {
+            var item = items.FirstOrDefault(i => i.id_item == detalle.id_item);
+            var plato = platos.FirstOrDefault(p => p.id_plato == item?.id_plato);
+
+            <tr>
+                <td>@(plato?.nombre)</td>
+                <td>@(plato?.tiempo_estimado)</td>
+            </tr>
+        }
+    </tbody>
+</table>

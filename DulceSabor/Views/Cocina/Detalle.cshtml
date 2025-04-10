@@ -1,21 +1,37 @@
-﻿@model DulceSabor.Models.pedidos
+﻿@model IEnumerable<DulceSabor.Models.detalle_pedido>
 
 @{
     ViewData["Title"] = "Detalle del Pedido";
+    var detalles = Model;
+    var platos = ViewBag.Platos as List<DulceSabor.Models.platos>;
 }
 
-<div class="container mt-4">
-    <h2>Detalle del Pedido</h2>
+<h2>Detalle del Pedido</h2>
 
-    <p><strong>Estado:</strong> @Model.estado</p>
-    <p><strong>Comentario:</strong> Sin sal en la sopa</p>
-
-    <h4>Platos:</h4>
-    <ul>
-        <li>Sopa de pollo</li>
-        <li>Carne asada</li>
-        <li>Jugo de naranja</li>
-    </ul>
-
-    <a asp-action="Index" class="btn btn-secondary">Volver</a>
-</div>
+@if (detalles != null && detalles.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre del Plato</th>
+                <th>Comentario</th>
+                <th>Tiempo Estimado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detalle in detalles)
+            {
+                var plato = platos?.FirstOrDefault(p => p.id_plato == detalle.id_plato); 
+                <tr>
+                    <td>@plato?.nombre</td> 
+                    <td>@detalle.comentarios</td> 
+                    <td>@plato?.tiempo_estimado</td> 
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>@ViewBag.Message</p> 
+}
